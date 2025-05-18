@@ -1,17 +1,18 @@
-//
-//  HomeFix2App.swift
-//  HomeFix2
-//
-//  Created by Souhail Bourhim on 11/03/2025.
-//
-
 import SwiftUI
+import Firebase
 
 @main
-struct HomeFix2App: App {
+struct HomeFixApp: App {
+    @StateObject var authViewModel = AuthViewModel()
+    
+    init() {
+        FirebaseApp.configure()
+    }
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            AppView()
+                .environmentObject(authViewModel)
         }
     }
 }

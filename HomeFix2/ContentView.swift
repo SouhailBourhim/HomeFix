@@ -4,8 +4,11 @@ import SwiftUI
 
 // ContentView principal
 struct ContentView: View {
+    @EnvironmentObject var authViewModel: AuthViewModel
+    @State private var selectedTab = 0
+    
     var body: some View {
-        TabView {
+        TabView (selection: $selectedTab) {
             HomePage()
                 .tabItem {
                     Label("Accueil", systemImage: "house.fill")
