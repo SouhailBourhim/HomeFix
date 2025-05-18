@@ -2,17 +2,21 @@ import SwiftUI
 import Firebase
 
 @main
-struct HomeFixApp: App {
+struct HomeFix2App: App {
     @StateObject var authViewModel = AuthViewModel()
-    
+
     init() {
         FirebaseApp.configure()
     }
-    
+
     var body: some Scene {
         WindowGroup {
-            AppView()
-                .environmentObject(authViewModel)
+            if authViewModel.isAuthenticated {
+                authViewModel.mainView()
+            } else {
+                LoginView()
+                    .environmentObject(authViewModel)
+            }
         }
     }
 }
