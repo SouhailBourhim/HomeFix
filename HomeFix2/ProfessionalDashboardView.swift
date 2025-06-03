@@ -74,7 +74,7 @@ struct ProfessionalDashboardView: View {
             .navigationBarItems(trailing: Button(action: {
                 authViewModel.signOut()
             }) {
-                Text("Sign Out")
+                Text("Se déconnecter")
                     .foregroundColor(.red)
             })
             .onAppear {
@@ -116,8 +116,8 @@ struct ProfessionalDashboardView: View {
             if serviceOfferings.isEmpty {
                 emptyStateView(
                     systemImage: "wrench.and.screwdriver",
-                    title: "No Services",
-                    message: "You haven't added any services yet. Tap the + button to add a service."
+                    title: "Pas de service",
+                    message: "Vous n'avez pas encore ajouter de service . appuyer sur + pour ajouter un."
                 )
             } else {
                 List {
@@ -127,7 +127,7 @@ struct ProfessionalDashboardView: View {
                                 Button(role: .destructive) {
                                     deleteService(service)
                                 } label: {
-                                    Label("Delete", systemImage: "trash")
+                                    Label("Suprimmer", systemImage: "trash")
                                 }
                             }
                     }
@@ -139,7 +139,7 @@ struct ProfessionalDashboardView: View {
             }) {
                 HStack {
                     Image(systemName: "plus")
-                    Text("Add Service")
+                    Text("Ajouter un service")
                 }
                 .foregroundColor(.white)
                 .frame(maxWidth: .infinity)
@@ -156,9 +156,9 @@ struct ProfessionalDashboardView: View {
         VStack {
             if appointments.isEmpty {
                 emptyStateView(
-                    systemImage: "calendar",
-                    title: "No Appointments",
-                    message: "You don't have any appointments yet. They will appear here when clients book your services."
+                    systemImage: "calendrier",
+                    title: "pas de rendez-vous",
+                    message: "Vous n'avez pas encore de rendez-vous. Ils apparaîtront ici lorsque les clients réserveront vos services."
                 )
             } else {
                 List {
@@ -182,8 +182,8 @@ struct ProfessionalDashboardView: View {
         VStack {
             emptyStateView(
                 systemImage: "chart.bar",
-                title: "Statistics Coming Soon",
-                message: "We're working on providing insights about your business performance."
+                title: "Statistiques à venir",
+                message: "Nous travaillons à fournir des informations sur les performances de votre entreprise."
             )
         }
     }

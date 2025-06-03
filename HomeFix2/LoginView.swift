@@ -1,7 +1,6 @@
 import SwiftUI
 
-// This file provides a compatibility layer for iOS 15 and iOS 16+
-// You can use this version if you need to support older iOS versions
+
 
 struct LoginView: View {
     @EnvironmentObject var authViewModel: AuthViewModel
@@ -10,9 +9,9 @@ struct LoginView: View {
     @State private var navigateToRegister = false
     
     var body: some View {
-        // This approach works on both iOS 15 and iOS 16+
+       
         if #available(iOS 16.0, *) {
-            // iOS 16+ approach
+      
             NavigationStack {
                 loginContent
                     .navigationDestination(isPresented: $navigateToRegister) {
